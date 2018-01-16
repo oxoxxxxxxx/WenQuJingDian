@@ -8,6 +8,7 @@ public class MainActivity extends BaseActivity {
     public void initView() {
         super.initView();
         setContentView(R.layout.activity_home);
+//        解放路卡萨丁
 
     }
 
