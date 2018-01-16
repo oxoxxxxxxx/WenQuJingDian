@@ -7,7 +7,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initView() {
         super.initView();
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
     }
 
