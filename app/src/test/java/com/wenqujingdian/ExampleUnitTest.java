@@ -1,4 +1,4 @@
-package wenqujingdian.wenqujingdian;
+package com.wenqujingdian;
 
 import org.junit.Test;
 
