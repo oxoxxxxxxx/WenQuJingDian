@@ -17,17 +17,7 @@
         <!-- 指定消失的动画xml  -->
     </style>
 
-    <!-- 加载框框-->
-    <style name="MyDialogStyle">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowFrame">@null</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowIsFloating">true</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
-        <item name="android:backgroundDimEnabled">true</item>
-    </style>
+
 
 
     <style name="radiobutton_style">
@@ -43,5 +33,24 @@
         <item name="android:background">#FFFFFFFF</item>
 
     </style>
+
+
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <!--去掉边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--悬浮-->
+        <item name="android:windowIsFloating">true</item>
+        <!--半透明-->
+        <item name="android:windowIsTranslucent">false</item>
+        <!--不需要标题-->
+        <item name="android:windowNoTitle">true</item>
+        <!--背景透明-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--允许模糊-->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!--占据整个window.全屏幕-->
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
 
 </resources>

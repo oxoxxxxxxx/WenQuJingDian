@@ -1,19 +1,15 @@
 package com.wenqujingdian.base;
 
 import android.annotation.TargetApi;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.Gravity;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -21,13 +17,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wenqujingdian.myapplication.MyApplication;
-import com.wenqujingdian.R;
 import com.zhy.autolayout.AutoLayoutActivity;
 
 /**
@@ -38,7 +31,8 @@ import com.zhy.autolayout.AutoLayoutActivity;
 
 public class BaseActivity extends AutoLayoutActivity {
 
-    private static Toast toast;
+    private Toast mToast;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -75,7 +69,6 @@ public class BaseActivity extends AutoLayoutActivity {
         return this;
     }
 
-    private Toast mToast;
 
     public <T> void toast(T data) {
         if (mToast == null) {
@@ -96,54 +89,6 @@ public class BaseActivity extends AutoLayoutActivity {
         }
         android.util.Log.i(this.getClass().getSimpleName(), data);
     }
-
-    /**
-     * 加载动画的dialog
-     * @param context
-     * @param msg 要显示的文本信息
-     * @return
-     */
-    public static Dialog createLoadingDialog(Context context, String msg) {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View v = inflater.inflate(R.layout.dialog_loading, null);// 得到加载view
-        LinearLayout layout = (LinearLayout) v
-                .findViewById(R.id.dialog_loading_view);// 加载布局
-        ImageView img = (ImageView) v.findViewById(R.id.progressBar1);
-        ((AnimationDrawable) img.getBackground()).start();
-//        TextView tipTextView = (TextView) v.findViewById(R.id.tipTextView);// 提示文字
-//        tipTextView.setText(msg);// 设置加载信息
-
-        Dialog loadingDialog = new Dialog(context, R.style.MyDialogStyle);// 创建自定义样式dialog
-        loadingDialog.setCancelable(true); // 是否可以按“返回键”消失
-        loadingDialog.setCanceledOnTouchOutside(false); // 点击加载框以外的区域
-        loadingDialog.setContentView(layout, new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT));// 设置布局
-        /**
-         *将显示Dialog的方法封装在这里面
-         */
-        Window window = loadingDialog.getWindow();
-        WindowManager.LayoutParams lp = window.getAttributes();
-        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        window.setGravity(Gravity.CENTER);
-        window.setAttributes(lp);
-        window.setWindowAnimations(R.style.PopWindowAnimStyle);
-        loadingDialog.show();
-
-        return loadingDialog;
-    }
-    /**
-     * 关闭dialog
-     *
-     * @param mDialogUtils
-     */
-    public static void closeDialog(Dialog mDialogUtils) {
-        if (mDialogUtils != null && mDialogUtils.isShowing()) {
-            mDialogUtils.dismiss();
-        }
-    }
-
 
     /**
      * 判断设备是否有navigation bar

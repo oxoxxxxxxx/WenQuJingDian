@@ -2,7 +2,8 @@ package com.wenqujingdian.myapplication;
 
 import android.app.Activity;
 import android.app.Application;
-import android.content.Context;
+
+import com.wenqujingdian.app.Latte;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -17,14 +18,15 @@ public class MyApplication extends Application {
 
 
     public static List<Activity> activityList ;
-    public static Context context;
 
 
     @Override
     public void onCreate() {
         super.onCreate();
         activityList  = new LinkedList<Activity>();
-        context = this;
+        Latte.init(this)
+                .withApiHost("http://www.99emall.com/shop/")
+                .configure();
     }
 
     /**

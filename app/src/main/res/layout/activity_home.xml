@@ -43,20 +43,22 @@
 
                 android:text="书架" />
             <!--android:drawableTop="@drawable/radiobutton_bg_home"-->
+
             <RadioButton
-                android:id="@+id/home_radio_shop"
+                android:id="@+id/home_radio_book_shop"
                 android:drawablePadding="3dp"
                 style="@style/radiobutton_style"
                 android:checked="true"
 
                 android:text="书城" />
+
             <!--android:drawableTop="@drawable/radiobutton_bg_shop"-->
+
             <RadioButton
                 android:id="@+id/home_radio_me"
                 style="@style/radiobutton_style"
                 android:drawablePadding="3dp"
                 android:checked="true"
-
                 android:text="我的" />
 
             <!--android:drawableTop="@drawable/radiobutton_bg_me"-->
