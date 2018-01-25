@@ -37,7 +37,8 @@
             android:name="android.max_aspect"
             android:value="2.1" />
 
-        <activity android:name="com.wenqujingdian.view.home.HomeActivity">
+        <activity android:name="com.wenqujingdian.view.home.HomeActivity"
+                  android:resizeableActivity = "true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

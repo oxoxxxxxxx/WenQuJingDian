@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
 
     <LinearLayout
@@ -27,44 +27,98 @@
             android:layout_height="20px"
             android:background="#eeeeee"/>
 
-
-        <RadioGroup
-            android:id="@+id/home_radio_group"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="121px"
-            android:background="@color/colorPrimary"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/home_radio_home"
-                style="@style/radiobutton_style"
-                android:checked="true"
-                android:drawablePadding="3dp"
+            <LinearLayout
+                android:id="@+id/act_home_book_lin"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="12px"
+                android:paddingBottom="8px"
+                android:layout_weight="1">
 
-                android:text="书架" />
-            <!--android:drawableTop="@drawable/radiobutton_bg_home"-->
+                <ImageView
+                    android:id="@+id/act_home_book_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/shu"/>
 
-            <RadioButton
-                android:id="@+id/home_radio_book_shop"
-                android:drawablePadding="3dp"
-                style="@style/radiobutton_style"
-                android:checked="true"
+                <TextView
+                    android:id="@+id/act_home_book_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="书架"
+                    android:layout_marginTop="10px"
+                    android:textColor="@color/themeColor"
+                    android:textSize="28px"
+                    />
 
-                android:text="书城" />
 
-            <!--android:drawableTop="@drawable/radiobutton_bg_shop"-->
+            </LinearLayout>
 
-            <RadioButton
-                android:id="@+id/home_radio_me"
-                style="@style/radiobutton_style"
-                android:drawablePadding="3dp"
-                android:checked="true"
-                android:text="我的" />
 
-            <!--android:drawableTop="@drawable/radiobutton_bg_me"-->
-        </RadioGroup>
+            <LinearLayout
+                android:id="@+id/act_home_shop_lin"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="12px"
+                android:paddingBottom="8px"
+                android:layout_weight="1">
 
+                <ImageView
+                    android:id="@+id/act_home_shop_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/book1"/>
+
+                <TextView
+                    android:id="@+id/act_home_shop_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="书城"
+                    android:layout_marginTop="10px"
+                    android:textColor="@color/themeColor_1"
+                    android:textSize="28px"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/act_home_me_lin"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="12px"
+                android:paddingBottom="8px"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/act_home_me_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/our1"/>
+
+                <TextView
+                    android:id="@+id/act_home_me_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我的"
+                    android:layout_marginTop="10px"
+                    android:textColor="@color/themeColor_1"
+                    android:textSize="28px"
+                    />
+
+
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-
-
 </LinearLayout>

@@ -1,9 +1,6 @@
 package com.wenqujingdian.net.callback;
 
 
-import android.util.Log;
-
-import com.wenqujingdian.ui.LatteLoader;
 import com.wenqujingdian.ui.LoaderStyle;
 
 import retrofit2.Call;
@@ -21,7 +18,7 @@ public class RequestCallBack implements Callback<String> {
     private final IError   ERROR;
     private final IFailure FAILURE;
     private final IRequest REQUST;
-    private final LoaderStyle LOADER_STYPE;
+//    private final LoaderStyle LOADER_STYPE;
 
 
     public RequestCallBack(ISuccess success, IError error, IFailure failure, IRequest request,LoaderStyle style) {
@@ -29,7 +26,7 @@ public class RequestCallBack implements Callback<String> {
         ERROR = error;
         FAILURE = failure;
         REQUST = request;
-        LOADER_STYPE = style;
+//        LOADER_STYPE = style;
     }
 
     @Override
@@ -45,7 +42,7 @@ public class RequestCallBack implements Callback<String> {
                 ERROR.OnError(response.code(), response.message());
             }
         }
-      stopLoading();
+//      stopLoading();
 
     }
 
@@ -57,14 +54,14 @@ public class RequestCallBack implements Callback<String> {
         if (REQUST != null){
             REQUST.onRequstEnd();
         }
-        stopLoading();
+//        stopLoading();
     }
 
-    private void stopLoading (){
-        if (LOADER_STYPE != null){
-            Log.i("结束了","请求完成");
-
-            LatteLoader.stopLoading();
-        }
-    }
+//    private void stopLoading (){
+//        if (LOADER_STYPE != null){
+//            Log.i("结束了","请求完成");
+//
+//            LatteLoader.stopLoading();
+//        }
+//    }
 }

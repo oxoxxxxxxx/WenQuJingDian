@@ -1,19 +1,22 @@
 package com.wenqujingdian.view.home;
 
-import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.wenqujingdian.R;
 import com.wenqujingdian.base.BaseActivity;
 import com.wenqujingdian.view.home.fragment.HomeFragment;
 import com.wenqujingdian.view.home.fragment.MeFragment;
+import com.wenqujingdian.view.home.fragment.BookShopFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * # 作者：王宏伟
@@ -21,29 +24,48 @@ import butterknife.ButterKnife;
  * # 描述：织巢鸟科技
  */
 
-public class HomeActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
+public class HomeActivity extends BaseActivity {
 
     @Bind(R.id.home_framelayout)
-    FrameLayout homeViewFrag;
-    @Bind(R.id.home_radio_home)
-    RadioButton homeRadioHome;
-    @Bind(R.id.home_radio_book_shop)
-    RadioButton homeRadioShop;
-    @Bind(R.id.home_radio_me)
-    RadioButton homeRadioMe;
-    @Bind(R.id.home_radio_group)
-    RadioGroup  homeRadioGroup;
+    FrameLayout  homeViewFrag;
+    @Bind(R.id.act_home_book_img)
+    ImageView    mActHomeBookImg;
+    @Bind(R.id.act_home_book_tv)
+    TextView     mActHomeBookTv;
+    @Bind(R.id.act_home_book_lin)
+    LinearLayout mActHomeBookLin;
+    @Bind(R.id.act_home_shop_img)
+    ImageView    mActHomeShopImg;
+    @Bind(R.id.act_home_shop_tv)
+    TextView     mActHomeShopTv;
+    @Bind(R.id.act_home_shop_lin)
+    LinearLayout mActHomeShopLin;
+    @Bind(R.id.act_home_me_img)
+    ImageView    mActHomeMeImg;
+    @Bind(R.id.act_home_me_tv)
+    TextView     mActHomeMeTv;
+    @Bind(R.id.act_home_me_lin)
+    LinearLayout mActHomeMeLin;
 
-    private HomeFragment homeFragment;
-//    private ShopFragment shopFragment;
-    private MeFragment   meFragment;
+    private HomeFragment     homeFragment;
+    private BookShopFragment mBookShopFragment;
+    private MeFragment       meFragment;
+    private boolean meBoolean   = false;
+    private boolean homeBoolean = true;
+    private boolean bookBoolean = false;
 
     @Override
     public void initView() {
         super.initView();
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
-
+        setState();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        if (homeFragment == null) {
+            homeFragment = HomeFragment.newInstance();
+        }
+        transaction.replace(R.id.home_framelayout, homeFragment);
+        transaction.commit();
 
     }
 
@@ -55,88 +77,74 @@ public class HomeActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     @Override
     public void initEvent() {
         super.initEvent();
-        homeRadioGroup.setOnCheckedChangeListener(this);
-        setDefaultFragment();
     }
 
-//    初始化 首页状态
+    private void setState() {
+        if (homeBoolean) {
+            mActHomeBookTv.setTextColor(ContextCompat.getColor(getActivity(), R.color.themeColor));
+            mActHomeShopTv.setTextColor(ContextCompat.getColor(getActivity(), R.color.themeColor_1));
+            mActHomeMeTv.setTextColor(ContextCompat.getColor(getActivity(), R.color.themeColor_1));
+            mActHomeBookImg.setImageResource(R.drawable.shu);
+            mActHomeShopImg.setImageResource(R.drawable.book1);
+            mActHomeMeImg.setImageResource(R.drawable.our1);
 
-    private void setDefaultFragment() {
-        homeRadioHome.setChecked(true);
-        homeRadioShop.setChecked(false);
-        homeRadioMe.setChecked(false);
-
-        if (homeRadioHome.isChecked()){
-            setTabState();
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            meFragment = MeFragment.newInstance();
-            transaction.replace(R.id.home_framelayout,homeFragment).commit();
+        } else if (bookBoolean) {
+            mActHomeBookTv.setTextColor(ContextCompat.getColor(getActivity(), R.color.themeColor_1));
+            mActHomeShopTv.setTextColor(ContextCompat.getColor(getActivity(), R.color.themeColor));
+            mActHomeMeTv.setTextColor(ContextCompat.getColor(getActivity(), R.color.themeColor_1));
+            mActHomeBookImg.setImageResource(R.drawable.shu1);
+            mActHomeShopImg.setImageResource(R.drawable.book);
+            mActHomeMeImg.setImageResource(R.drawable.our1);
+        } else if (meBoolean) {
+            mActHomeBookTv.setTextColor(ContextCompat.getColor(getActivity(), R.color.themeColor_1));
+            mActHomeShopTv.setTextColor(ContextCompat.getColor(getActivity(), R.color.themeColor_1));
+            mActHomeMeTv.setTextColor(ContextCompat.getColor(getActivity(), R.color.themeColor));
+            mActHomeBookImg.setImageResource(R.drawable.shu1);
+            mActHomeShopImg.setImageResource(R.drawable.book1);
+            mActHomeMeImg.setImageResource(R.drawable.our);
         }
+
     }
 
-    @Override
-    public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+
+    @OnClick({R.id.act_home_book_lin, R.id.act_home_shop_lin, R.id.act_home_me_lin})
+    public void onViewClicked(View view) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        switch (checkedId) {
-            case R.id.home_radio_home:
-                if (homeFragment == null){
+
+        switch (view.getId()) {
+            case R.id.act_home_book_lin:
+                if (homeFragment == null) {
                     homeFragment = HomeFragment.newInstance();
                 }
-                transaction.replace(R.id.home_framelayout,homeFragment);
+                transaction.replace(R.id.home_framelayout, homeFragment);
+                homeBoolean = true;
+                bookBoolean = false;
+                meBoolean = false;
+                setState();
 
                 break;
-            case R.id.home_radio_book_shop:
-//                if (shopFragment == null){
-//                    shopFragment = ShopFragment.newInstance();
-//                }
-//                transaction.replace(R.id.home_view_frag,shopFragment);
-
+            case R.id.act_home_shop_lin:
+                if (mBookShopFragment == null) {
+                    mBookShopFragment = BookShopFragment.newInstance();
+                }
+                transaction.replace(R.id.home_framelayout, mBookShopFragment);
+                homeBoolean = false;
+                bookBoolean = true;
+                meBoolean = false;
+                setState();
                 break;
-            case R.id.home_radio_me:
-                if (meFragment == null){
+            case R.id.act_home_me_lin:
+                if (meFragment == null) {
                     meFragment = MeFragment.newInstance();
 
                 }
-                transaction.replace(R.id.home_framelayout,meFragment);
-
+                transaction.replace(R.id.home_framelayout, meFragment);
+                homeBoolean = false;
+                bookBoolean = false;
+                meBoolean = true;
+                setState();
                 break;
         }
-        setTabState();
         transaction.commit();
     }
-
-    private void setTabState() {
-//        改变导航按钮的状态
-        setHomeState();
-        setShopState();
-        setMeState();
-    }
-
-    private void setMeState() {
-        if (homeRadioMe.isChecked()){
-            homeRadioMe.setTextColor(ContextCompat.getColor(getActivity(),R.color.themeColor));
-        }else {
-            homeRadioMe.setTextColor(ContextCompat.getColor(getActivity(),R.color.themeColor_1));
-        }
-
-    }
-
-    private void setShopState() {
-        if (homeRadioShop.isChecked()){
-            homeRadioShop.setTextColor(ContextCompat.getColor(getActivity(),R.color.themeColor));
-        }else {
-            homeRadioShop.setTextColor(ContextCompat.getColor(getActivity(),R.color.themeColor_1 ));
-        }
-
-    }
-
-    private void setHomeState() {
-        if (homeRadioHome.isChecked()){
-            homeRadioHome.setTextColor(ContextCompat.getColor(getActivity(),R.color.themeColor));
-        }else {
-            homeRadioHome.setTextColor(ContextCompat.getColor(getActivity(),R.color.themeColor_1));
-        }
-
-    }
-
 }
