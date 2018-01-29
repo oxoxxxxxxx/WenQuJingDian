@@ -7,9 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.wenqujingdian.R;
-import com.wenqujingdian.base.BaseFragment;
-import com.wenqujingdian.net.RestClient;
-import com.wenqujingdian.net.callback.ISuccess;
+import com.wenqujingdian.base.BaseViewPagerFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -20,14 +18,15 @@ import butterknife.ButterKnife;
  * # 描述：织巢鸟科技
  */
 
-public class ChildHomeFragment extends BaseFragment {
+public class ChildHomeViewPagerFragment extends BaseViewPagerFragment {
 
     @Bind(R.id.srll_layout)
     SwipeRefreshLayout mSrllLayout;
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container) {
-        toast("创建成功");
         View view = inflater.inflate(R.layout.child_frag_home, null);
         ButterKnife.bind(this, view);
         return view;
@@ -35,20 +34,26 @@ public class ChildHomeFragment extends BaseFragment {
 
     @Override
     public void initView() {
-        super.initView();
         initRefreshLayout();
     }
 
     @Override
-    public void initData() {
-        super.initData();
-        RestClient.sBuilder().url("productAndroid!product_hot").success(new ISuccess() {
-            @Override
-            public void onSuccess(String response) {
-
-            }
-        }).build().get();
+    protected void onFragmentVisibleChange(boolean isVisible) {
+        if (isVisible){
+            log("第一次加载 44");
+        }
     }
+
+    //    @Override
+//    public void initData() {
+//        super.initData();
+//        RestClient.sBuilder().url("productAndroid!product_hot").success(new ISuccess() {
+//            @Override
+//            public void onSuccess(String response) {
+//
+//            }
+//        }).build().get();
+//    }
 
     private void initRefreshLayout(){
         mSrllLayout.setColorSchemeResources(android.R.color.holo_blue_bright,

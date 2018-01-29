@@ -12,12 +12,12 @@ import android.view.ViewGroup;
 
 import com.wenqujingdian.R;
 import com.wenqujingdian.base.BaseFragment;
-import com.wenqujingdian.view.home.fragment.childfragment.BookFragment;
 import com.wenqujingdian.view.home.fragment.childfragment.BookShopFragmentPagerAdapter;
-import com.wenqujingdian.view.home.fragment.childfragment.ChildHomeFragment;
-import com.wenqujingdian.view.home.fragment.childfragment.ListenBookFragment;
-import com.wenqujingdian.view.home.fragment.childfragment.NewspaperFragment;
-import com.wenqujingdian.view.home.fragment.childfragment.PeriodicalFragment;
+import com.wenqujingdian.view.home.fragment.childfragment.BookViewPagerFragment;
+import com.wenqujingdian.view.home.fragment.childfragment.ChildHomeViewPagerFragment;
+import com.wenqujingdian.view.home.fragment.childfragment.ListenBookViewPagerFragment;
+import com.wenqujingdian.view.home.fragment.childfragment.NewspaperViewPagerFragment;
+import com.wenqujingdian.view.home.fragment.childfragment.PeriodicalViewPagerFragment;
 
 import java.util.ArrayList;
 
@@ -30,7 +30,7 @@ import butterknife.OnClick;
  * Created by wanghongwei on 2017/7/3.
  */
 
-public class BookShopFragment extends BaseFragment {
+public class BookShopViewPagerFragment extends BaseFragment {
     @Bind(R.id.title_title)
     AppCompatTextView  mTitleTitle;
     @Bind(R.id.frag_book_shop_tab)
@@ -42,18 +42,18 @@ public class BookShopFragment extends BaseFragment {
 
     private int position = 0;
 
-    private ChildHomeFragment  mChildHomeFragment  = new ChildHomeFragment();
-    private ListenBookFragment mListenBookFragment = new ListenBookFragment();
-    private NewspaperFragment  mNewspaperFragment  = new NewspaperFragment();
-    private PeriodicalFragment mPeriodicalFragment = new PeriodicalFragment();
-    private BookFragment       mBookFragment       = new BookFragment();
-    private BookShopFragmentPagerAdapter  mPagerAdapter = null;
+    private ChildHomeViewPagerFragment   mChildHomeFragment  = new ChildHomeViewPagerFragment();
+    private ListenBookViewPagerFragment  mListenBookFragment = new ListenBookViewPagerFragment();
+    private NewspaperViewPagerFragment   mNewspaperFragment  = new NewspaperViewPagerFragment();
+    private PeriodicalViewPagerFragment  mPeriodicalFragment = new PeriodicalViewPagerFragment();
+    private BookViewPagerFragment        mBookFragment       = new BookViewPagerFragment();
+    private BookShopFragmentPagerAdapter mPagerAdapter       = null;
 
 
 //    单实例
 
-    public static BookShopFragment newInstance() {
-        return new BookShopFragment();
+    public static BookShopViewPagerFragment newInstance() {
+        return new BookShopViewPagerFragment();
     }
 
     @Override
@@ -62,6 +62,7 @@ public class BookShopFragment extends BaseFragment {
         ButterKnife.bind(this, view);
         return view;
     }
+
 
     @Override
     public void initView() {
@@ -86,17 +87,6 @@ public class BookShopFragment extends BaseFragment {
         mPagerAdapter = new BookShopFragmentPagerAdapter(getChildFragmentManager(),fragments,titles);
         mFragBookShopVp.setAdapter(mPagerAdapter);
         mFragBookShopTab.setupWithViewPager(mFragBookShopVp);
-    }
-
-    @Override
-    public void initData() {
-        super.initData();
-    }
-
-
-    @Override
-    public void initEvent() {
-        super.initEvent();
         mFragBookShopTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -107,6 +97,7 @@ public class BookShopFragment extends BaseFragment {
 
                 }
                 position = tab.getPosition();
+                mFragBookShopVp.setCurrentItem(position);
             }
 
             @Override
@@ -119,6 +110,7 @@ public class BookShopFragment extends BaseFragment {
 
             }
         });
+
     }
 
     @OnClick({R.id.frag_book_shop_lift_img})
@@ -127,6 +119,8 @@ public class BookShopFragment extends BaseFragment {
             case R.id.frag_book_shop_lift_img:
                 if (position < mFragBookShopTab.getTabCount() - 1) {
                     mFragBookShopTab.setScrollPosition(position += 1, 0, true);
+                    mFragBookShopVp.setCurrentItem(position);
+
                 } else {
                     toast("最后一个啦！");
                 }
@@ -134,4 +128,16 @@ public class BookShopFragment extends BaseFragment {
 
         }
     }
+
+    @Override
+    public void initData() {
+        super.initData();
+    }
+
+    @Override
+    public void initEvent() {
+        super.initEvent();
+    }
+
+
 }

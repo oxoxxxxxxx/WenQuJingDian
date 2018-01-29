@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.wenqujingdian.R;
-import com.wenqujingdian.base.BaseFragment;
+import com.wenqujingdian.base.BaseViewPagerFragment;
 
 /**
  * # 作者：王宏伟
@@ -14,12 +14,25 @@ import com.wenqujingdian.base.BaseFragment;
  * # 描述：织巢鸟科技
  */
 
-public class NewspaperFragment extends BaseFragment {
-
+public class NewspaperViewPagerFragment extends BaseViewPagerFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container) {
+
+
         return inflater.inflate(R.layout.child_frag_newspaper,null);
 
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void onFragmentVisibleChange(boolean isVisible) {
+        if (isVisible){
+            log("第一次加载 22");
+        }
     }
 }

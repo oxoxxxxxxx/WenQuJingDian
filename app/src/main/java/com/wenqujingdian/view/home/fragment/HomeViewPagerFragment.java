@@ -13,15 +13,30 @@ import com.wenqujingdian.base.BaseFragment;
  * Created by wanghongwei on 2017/7/3.
  */
 
-public class HomeFragment extends BaseFragment {
+public class HomeViewPagerFragment extends BaseFragment {
 
-//    单实例
-    public static HomeFragment newInstance (){
-        return new HomeFragment();
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container) {
         return inflater.inflate(R.layout.frag_home,container,false);
     }
+
+    @Override
+    public void initView() {
+        super.initView();
+
+    }
+
+    @Override
+    public void initData() {
+        super.initData();
+    }
+
+    @Override
+    public void initEvent() {
+        super.initEvent();
+    }
+
+
 }

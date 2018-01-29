@@ -1,6 +1,7 @@
 package com.wenqujingdian.net;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.wenqujingdian.net.callback.IError;
 import com.wenqujingdian.net.callback.IFailure;
@@ -8,6 +9,7 @@ import com.wenqujingdian.net.callback.IRequest;
 import com.wenqujingdian.net.callback.ISuccess;
 import com.wenqujingdian.net.callback.RequestCallBack;
 import com.wenqujingdian.net.download.DownloadHandler;
+import com.wenqujingdian.ui.LatteLoader;
 import com.wenqujingdian.ui.LoaderStyle;
 
 import java.io.File;
@@ -80,10 +82,10 @@ public class RestClient {
         if (REQUST != null) {
             REQUST.onRequstStart();
         }
-//        if (LOADER_STYLE != null) {
-//            Log.i("显示了","请求开始了");
-////            LatteLoader.showLoading(CONTEXT, LOADER_STYLE);
-//        }
+        if (LOADER_STYLE != null) {
+            Log.i("显示了","请求开始了");
+            LatteLoader.showLoading(CONTEXT, LOADER_STYLE);
+        }
         switch (method) {
             case GET:
 

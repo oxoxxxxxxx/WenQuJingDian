@@ -10,9 +10,9 @@ import android.widget.TextView;
 
 import com.wenqujingdian.R;
 import com.wenqujingdian.base.BaseActivity;
-import com.wenqujingdian.view.home.fragment.HomeFragment;
-import com.wenqujingdian.view.home.fragment.MeFragment;
-import com.wenqujingdian.view.home.fragment.BookShopFragment;
+import com.wenqujingdian.view.home.fragment.BookShopViewPagerFragment;
+import com.wenqujingdian.view.home.fragment.HomeViewPagerFragment;
+import com.wenqujingdian.view.home.fragment.MeViewPagerFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -47,9 +47,9 @@ public class HomeActivity extends BaseActivity {
     @Bind(R.id.act_home_me_lin)
     LinearLayout mActHomeMeLin;
 
-    private HomeFragment     homeFragment;
-    private BookShopFragment mBookShopFragment;
-    private MeFragment       meFragment;
+    private HomeViewPagerFragment     homeFragment;
+    private BookShopViewPagerFragment mBookShopFragment;
+    private MeViewPagerFragment       meFragment;
     private boolean meBoolean   = false;
     private boolean homeBoolean = true;
     private boolean bookBoolean = false;
@@ -62,7 +62,7 @@ public class HomeActivity extends BaseActivity {
         setState();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if (homeFragment == null) {
-            homeFragment = HomeFragment.newInstance();
+            homeFragment = new HomeViewPagerFragment();
         }
         transaction.replace(R.id.home_framelayout, homeFragment);
         transaction.commit();
@@ -114,7 +114,7 @@ public class HomeActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.act_home_book_lin:
                 if (homeFragment == null) {
-                    homeFragment = HomeFragment.newInstance();
+                    homeFragment = new HomeViewPagerFragment();
                 }
                 transaction.replace(R.id.home_framelayout, homeFragment);
                 homeBoolean = true;
@@ -125,7 +125,7 @@ public class HomeActivity extends BaseActivity {
                 break;
             case R.id.act_home_shop_lin:
                 if (mBookShopFragment == null) {
-                    mBookShopFragment = BookShopFragment.newInstance();
+                    mBookShopFragment = BookShopViewPagerFragment.newInstance();
                 }
                 transaction.replace(R.id.home_framelayout, mBookShopFragment);
                 homeBoolean = false;
@@ -135,7 +135,7 @@ public class HomeActivity extends BaseActivity {
                 break;
             case R.id.act_home_me_lin:
                 if (meFragment == null) {
-                    meFragment = MeFragment.newInstance();
+                    meFragment = MeViewPagerFragment.newInstance();
 
                 }
                 transaction.replace(R.id.home_framelayout, meFragment);

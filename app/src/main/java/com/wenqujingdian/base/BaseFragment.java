@@ -11,12 +11,11 @@ import android.widget.Toast;
 
 /**
  * # 作者：王宏伟
- * # 时间：2018/1/16    下午3:24
- * # 描述：织巢鸟科技
+ * # 时间：2017/8/17    下午2:49
+ * # 描述：
  */
 
 public abstract class BaseFragment extends Fragment {
-
     private View mView;
 
     public <T> T findView(int id) {

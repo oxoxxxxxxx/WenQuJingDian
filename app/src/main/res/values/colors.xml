@@ -6,4 +6,9 @@
     <color name="themeColor">#00bb99</color>
     <color name="themeColor_1">#666666</color>
     <color name="textColor_333">#333333</color>
+    <color name="textColor_999">#999999</color>
+    <color name="textColor_666">#666666</color>
+    <color name="backgroad_ccc">#cccccc</color>
+    <color name="backgroad_eee">#eeeeee</color>
+    <color name="backgroad_e6">#e6e6e6</color>
 </resources>
