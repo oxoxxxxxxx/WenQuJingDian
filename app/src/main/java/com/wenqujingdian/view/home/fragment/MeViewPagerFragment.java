@@ -23,7 +23,7 @@ public class MeViewPagerFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container) {
-        View view = inflater.inflate(R.layout.frag_me, null);
+        View view = inflater.inflate(R.layout.frag_me, container,false);
         return view;
     }
 

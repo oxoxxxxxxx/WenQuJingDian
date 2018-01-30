@@ -18,7 +18,7 @@ public class PeriodicalViewPagerFragment extends BaseViewPagerFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container) {
 
-        return inflater.inflate(R.layout.child_frag_periodical,null);
+        return inflater.inflate(R.layout.child_frag_periodical,container,false);
 
     }
 

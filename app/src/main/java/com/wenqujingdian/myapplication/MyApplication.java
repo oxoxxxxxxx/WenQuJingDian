@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 
 import com.wenqujingdian.app.Latte;
+import com.zhy.autolayout.config.AutoLayoutConifg;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -27,6 +28,7 @@ public class MyApplication extends Application {
         Latte.init(this)
                 .withApiHost("http://www.99emall.com/shop/")
                 .configure();
+        AutoLayoutConifg.getInstance().useDeviceSize();
     }
 
     /**

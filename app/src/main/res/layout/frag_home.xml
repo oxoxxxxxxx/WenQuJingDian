@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
 
-    <TextView
+    <include
+        android:id="@+id/frag_home_title"
+        layout="@layout/title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="首页"
-        android:textSize="22sp"
-        android:gravity="center"/>
+        android:layout_height="wrap_content"/>
+
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/frag_home_tab"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@color/themeColor"
+        app:tabIndicatorHeight="5px"
+        app:tabSelectedTextColor="@color/textColor_333"
+        app:tabTextColor="@color/textColor_333"/>
+
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/frag_home_vp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+    </android.support.v4.view.ViewPager>
+
+
+
+x
+
 
 </LinearLayout>

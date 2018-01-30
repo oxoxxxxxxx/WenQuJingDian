@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:background="@android:color/white"
+              android:layout_height="wrap_content">
+
+
+
+        <ImageView
+            android:layout_width="221px"
+            android:src="@drawable/fjfbook"
+            android:layout_height="260px"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="超级中国"
+            android:textSize="30px"
+            android:layout_gravity="center"
+            android:layout_marginTop="20px"
+            android:textColor="@color/textColor_333"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="作者：胡鞍刚著"
+            android:textSize="18px"
+            android:layout_gravity="center"
+            android:layout_marginTop="10px"
+            android:textColor="@color/textColor_999"
+            />
+</com.zhy.autolayout.AutoLinearLayout>

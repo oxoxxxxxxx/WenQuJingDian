@@ -20,7 +20,7 @@ public class NewspaperViewPagerFragment extends BaseViewPagerFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container) {
 
 
-        return inflater.inflate(R.layout.child_frag_newspaper,null);
+        return inflater.inflate(R.layout.child_frag_newspaper,container,false);
 
     }
 

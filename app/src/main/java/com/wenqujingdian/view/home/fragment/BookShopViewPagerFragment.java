@@ -4,11 +4,11 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.AppCompatTextView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.wenqujingdian.R;
 import com.wenqujingdian.base.BaseFragment;
@@ -32,13 +32,13 @@ import butterknife.OnClick;
 
 public class BookShopViewPagerFragment extends BaseFragment {
     @Bind(R.id.title_title)
-    AppCompatTextView  mTitleTitle;
+    TextView  mTitleTitle;
     @Bind(R.id.frag_book_shop_tab)
-    TabLayout          mFragBookShopTab;
+    TabLayout mFragBookShopTab;
     @Bind(R.id.frag_book_shop_vp)
-    ViewPager          mFragBookShopVp;
+    ViewPager mFragBookShopVp;
     @Bind(R.id.frag_book_shop_lift_img)
-    AppCompatImageView mFragBookShopLiftImg;
+    ImageView mFragBookShopLiftImg;
 
     private int position = 0;
 

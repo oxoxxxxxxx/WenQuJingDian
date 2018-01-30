@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<com.zhy.autolayout.AutoLinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:background="@android:color/white"
@@ -11,236 +11,361 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <include layout="@layout/segmenting_line"/>
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginTop="20px"
-                android:layout_marginBottom="20px"
-                android:layout_height="78px">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include layout="@layout/segmenting_line"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20px"
+                    android:layout_marginBottom="20px"
+                    android:layout_height="78px">
 
 
-                <android.support.v7.widget.AppCompatEditText
-                    android:layout_width="0dp"
-                    android:hint="  书名、作者名"
-                    android:textColorHint="@color/textColor_999"
-                    android:background="@drawable/shape_bian_999"
-                    android:layout_weight="2.5"
+                    <EditText
+                        android:id="@+id/child_home_edit_find"
+                        android:layout_width="0dp"
+                        android:hint="  书名、作者名"
+                        android:textColorHint="@color/textColor_999"
+                        android:background="@drawable/shape_bian_999"
+                        android:layout_weight="2.5"
+                        android:layout_marginLeft="20px"
+                        android:textSize="25px"
+                        android:textColor="@color/textColor_333"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:id="@+id/child_home_class"
+                        android:layout_width="0dp"
+                        android:text="电子书/听书"
+                        android:background="@drawable/shape_bian_999"
+                        android:gravity="center"
+                        android:layout_marginLeft="10px"
+                        android:layout_marginRight="10px"
+                        android:layout_weight="1.3"
+                        android:textSize="25px"
+                        android:layout_height="match_parent"/>
+
+                    <TextView
+                        android:id="@+id/child_home_sou_tv"
+                        android:layout_width="0dp"
+                        android:text="搜索"
+                        android:textSize="25px"
+                        android:textStyle="bold"
+                        android:background="@color/themeColor"
+                        android:gravity="center"
+                        android:layout_marginRight="20px"
+                        android:textColor="@android:color/white"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"/>
+
+                </LinearLayout>
+
+                <include layout="@layout/segmenting_line"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:paddingBottom="55px"
+                    android:paddingTop="55px"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:layout_width="221px"
+                        android:layout_marginLeft="30px"
+                        android:background="@color/backgroad_eee"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_height="1px"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:text="推荐图书"
+                            android:textSize="36px"
+                            android:textColor="@color/textColor_666"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:text="Recommended Books"
+                            android:layout_marginTop="10px"
+                            android:textSize="18px"
+                            android:textColor="@color/textColor_999"/>
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="221px"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="30px"
+                        android:background="@color/backgroad_eee"
+                        android:layout_centerInParent="true"
+                        android:layout_height="1px"/>
+
+
+                </RelativeLayout>
+
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/child_home_recommended_books"
+
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginRight="20px"
+                        android:layout_marginBottom="30px"
+                        android:layout_height="match_parent"
+                        />
+
+                <include layout="@layout/segmenting_line"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:paddingBottom="55px"
+                    android:paddingTop="55px"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:layout_width="221px"
+                        android:layout_marginLeft="30px"
+                        android:background="@color/backgroad_eee"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_height="1px"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:text="推荐听书"
+                            android:textSize="36px"
+                            android:textColor="@color/textColor_666"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:text="Recommended Reading"
+                            android:layout_marginTop="10px"
+                            android:textSize="18px"
+                            android:textColor="@color/textColor_999"/>
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="221px"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="30px"
+                        android:background="@color/backgroad_eee"
+                        android:layout_centerInParent="true"
+                        android:layout_height="1px"/>
+
+
+                </RelativeLayout>
+
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/child_home_recommended_reading"
+                    android:layout_width="match_parent"
                     android:layout_marginLeft="20px"
-                    android:textSize="30px"
-                    android:textColor="@color/textColor_333"
-                    android:layout_height="match_parent"/>
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="0dp"
-                    android:hint="电子书/听书"
-                    android:background="@drawable/shape_bian_999"
-                    android:gravity="center"
-                    android:layout_marginLeft="10px"
-                    android:layout_marginRight="10px"
-                    android:layout_weight="1.3"
-                    android:textSize="30px"
-                    android:layout_height="match_parent"/>
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="0dp"
-                    android:text="搜索"
-                    android:textSize="30px"
-                    android:textStyle="bold"
-                    android:background="@color/themeColor"
-                    android:gravity="center"
                     android:layout_marginRight="20px"
-                    android:textColor="@android:color/white"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"/>
+                    android:layout_marginBottom="30px"
+                    android:layout_height="wrap_content">
 
-            </LinearLayout>
+                </android.support.v7.widget.RecyclerView>
 
-            <include layout="@layout/segmenting_line"/>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:paddingBottom="55px"
-                android:paddingTop="55px"
-                android:layout_height="wrap_content">
-                
-                <View
-                    android:layout_width="221px"
-                    android:layout_marginLeft="30px"
-                    android:background="@color/backgroad_eee"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerInParent="true"
-                    android:layout_height="1px"/>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="106px"
+                    android:orientation="horizontal">
 
-                    <android.support.v7.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:text="推荐图书"
+                    <TextView
+                        android:id="@+id/child_home_ranking_books"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="图书排行榜"
                         android:textSize="36px"
-                        android:textColor="@color/textColor_666"/>
-                    <android.support.v7.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:textStyle="bold"
+                        android:background="@color/themeColor"
+                        android:textColor="@android:color/white"
                         android:gravity="center"
-                        android:layout_gravity="center"
-                        android:text="Recommended Books"
-                        android:layout_marginTop="10px"
-                        android:textSize="18px"
-                        android:textColor="@color/textColor_999"/>
+                        android:layout_height="match_parent"/>
+
+
+                    <TextView
+                        android:id="@+id/child_home_ranking_reading"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="听书排行榜"
+                        android:textSize="36px"
+                        android:textStyle="bold"
+                        android:background="@color/backgroad_e6"
+                        android:textColor="@color/textColor_666"
+                        android:gravity="center"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="55px"
+                    android:layout_marginLeft="65px"
+                    android:layout_marginRight="65px"
+                    android:layout_height="62px">
+
+                    <TextView
+                        android:id="@+id/child_home_ranking_day"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="日排行"
+                        android:textSize="30px"
+                        android:gravity="center"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/fillet_backgrid_text_lift_shape"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/child_home_ranking_week"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="周排行"
+                        android:textSize="30px"
+                        android:gravity="center"
+                        android:textColor="@color/textColor_333"
+                        android:background="@color/backgroad_e6"
+                        />
+                    <TextView
+                        android:id="@+id/child_home_ranking_month"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="月排行"
+                        android:textSize="30px"
+                        android:gravity="center"
+                        android:textColor="@color/textColor_333"
+                        android:background="@drawable/fillet_backgrid_text_right_shape_hui"
+                        />
 
 
                 </LinearLayout>
 
-                <View
-                    android:layout_width="221px"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="30px"
-                    android:background="@color/backgroad_eee"
-                    android:layout_centerInParent="true"
-                    android:layout_height="1px"/>
-
-
-            </RelativeLayout>
-
-
-            <com.wenqujingdian.ui.MyGridView
-                android:layout_width="match_parent"
-                android:columnCount="3"
-                android:rowCount="2"
-                android:layout_marginLeft="20px"
-                android:layout_marginRight="20px"
-                android:layout_marginBottom="30px"
-                android:layout_height="wrap_content">
-
-            </com.wenqujingdian.ui.MyGridView>
-
-            <include layout="@layout/segmenting_line"/>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:paddingBottom="55px"
-                android:paddingTop="55px"
-                android:layout_height="wrap_content">
-
-                <View
-                    android:layout_width="221px"
-                    android:layout_marginLeft="30px"
-                    android:background="@color/backgroad_eee"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerInParent="true"
-                    android:layout_height="1px"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/child_home_ranking_list"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="65px"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginRight="20px"
+                    android:layout_marginBottom="30px"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:orientation="vertical">
+                    >
+                </android.support.v7.widget.RecyclerView>
 
-                    <android.support.v7.widget.AppCompatTextView
-                        android:layout_width="match_parent"
+                <include layout="@layout/segmenting_line"/>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:paddingBottom="55px"
+                    android:paddingTop="55px"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:layout_width="221px"
+                        android:layout_marginLeft="30px"
+                        android:background="@color/backgroad_eee"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_height="1px"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:text="推荐听书"
-                        android:textSize="36px"
-                        android:textColor="@color/textColor_666"/>
-                    <android.support.v7.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:text="Recommended Reading"
-                        android:layout_marginTop="10px"
-                        android:textSize="18px"
-                        android:textColor="@color/textColor_999"/>
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:text="新书上架"
+                            android:textSize="36px"
+                            android:textColor="@color/textColor_666"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:text="New Books"
+                            android:layout_marginTop="10px"
+                            android:textSize="18px"
+                            android:textColor="@color/textColor_999"/>
 
 
-                </LinearLayout>
+                    </LinearLayout>
 
-                <View
-                    android:layout_width="221px"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="30px"
-                    android:background="@color/backgroad_eee"
-                    android:layout_centerInParent="true"
-                    android:layout_height="1px"/>
-
-
-            </RelativeLayout>
+                    <View
+                        android:layout_width="221px"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="30px"
+                        android:background="@color/backgroad_eee"
+                        android:layout_centerInParent="true"
+                        android:layout_height="1px"/>
 
 
+                </RelativeLayout>
 
-            <com.wenqujingdian.ui.MyGridView
-                android:layout_width="match_parent"
-                android:columnCount="3"
-                android:rowCount="2"
-                android:layout_marginLeft="20px"
-                android:layout_marginRight="20px"
-                android:layout_marginBottom="30px"
-                android:layout_height="wrap_content">
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/child_home_new_books"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginRight="20px"
+                    android:layout_marginBottom="30px"
+                    android:layout_height="wrap_content">
 
-            </com.wenqujingdian.ui.MyGridView>
-
-            
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="106px"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:text="图书排行榜"
-                    android:textSize="36px"
-                    android:textStyle="bold"
-                    android:background="@color/themeColor"
-                    android:textColor="@android:color/white"
-                    android:gravity="center"
-                    android:layout_height="match_parent"/>
+                </android.support.v7.widget.RecyclerView>
 
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:text="听书排行榜"
-                    android:textSize="36px"
-                    android:textStyle="bold"
-                    android:background="@color/backgroad_e6"
-                    android:textColor="@color/textColor_666"
-                    android:gravity="center"
-                    android:layout_height="match_parent"/>
-            </LinearLayout>
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:background="@drawable/fillet_backgrid_shape"
-                android:layout_height="62px">
 
             </LinearLayout>
 
 
+        </ScrollView>
 
-
-
-
-        </LinearLayout>
 
 
     </android.support.v4.widget.SwipeRefreshLayout>
-</RelativeLayout>
+</com.zhy.autolayout.AutoLinearLayout>

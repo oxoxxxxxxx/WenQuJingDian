@@ -19,7 +19,7 @@ public class ListenBookViewPagerFragment extends BaseViewPagerFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container) {
 
-        return inflater.inflate(R.layout.child_frag_listonbook,null);
+        return inflater.inflate(R.layout.child_frag_listonbook,container,false);
 
     }
 
