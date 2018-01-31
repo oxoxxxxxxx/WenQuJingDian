@@ -19,7 +19,10 @@ import com.wenqujingdian.adapter.ReadsRecyclerviewAdapter;
 import com.wenqujingdian.app.Latte;
 import com.wenqujingdian.base.BaseViewPagerFragment;
 import com.wenqujingdian.ui.GridSpacingItemDecoration;
+import com.wenqujingdian.ui.RecyclerOnItemClickListener;
 import com.wenqujingdian.util.InitRefresh;
+import com.wenqujingdian.view.BookMassage.BookMassageActivity;
+import com.wenqujingdian.view.ReadMassage.ReadMassageActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -63,6 +66,8 @@ public class ChildHomeViewPagerFragment extends BaseViewPagerFragment {
     //    电子书
     private int bookClass = 1;
     private int times = 1;
+    private ReadsRecyclerviewAdapter readingAdapter;
+    private BookRecyclerviewAdapter bookAdapter;
 
 
     @Override
@@ -80,16 +85,29 @@ public class ChildHomeViewPagerFragment extends BaseViewPagerFragment {
         boolean includeEdge = false;
         mChildHomeRecommendedBooks.setLayoutManager(new GridLayoutManager(Latte.getApplication(), 3));
         mChildHomeRecommendedBooks.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
-        mChildHomeRecommendedBooks.setAdapter(new BookRecyclerviewAdapter());
+        bookAdapter = new BookRecyclerviewAdapter();
+        mChildHomeRecommendedBooks.setAdapter(bookAdapter);
 
         mChildHomeRecommendedReading.setLayoutManager(new GridLayoutManager(Latte.getApplication(), 3));
         mChildHomeRecommendedReading.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
-        mChildHomeRecommendedReading.setAdapter(new ReadsRecyclerviewAdapter());
+        readingAdapter = new ReadsRecyclerviewAdapter();
+        mChildHomeRecommendedReading.setAdapter(readingAdapter);
+        readingAdapter.setOnItemClickListener(new RecyclerOnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                startActivity(ReadMassageActivity.class);
+            }
+        });
 
         mChildHomeNewBooks.setLayoutManager(new GridLayoutManager(Latte.getApplication(), 3));
         mChildHomeNewBooks.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
-        mChildHomeNewBooks.setAdapter(new BookRecyclerviewAdapter());
-
+        mChildHomeNewBooks.setAdapter(bookAdapter);
+        bookAdapter.setOnItemClickListener(new RecyclerOnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                startActivity(BookMassageActivity.class);
+            }
+        });
         mChildHomeRankingList.setLayoutManager(new LinearLayoutManager(Latte.getApplication()));
         mChildHomeRankingList.setAdapter(new BookRecyclerLinViewAdapter());
 

@@ -4,11 +4,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.wenqujingdian.R;
 import com.wenqujingdian.app.Latte;
-import com.zhy.autolayout.utils.AutoUtils;
+import com.wenqujingdian.ui.RecyclerOnItemClickListener;
+import com.zhy.autolayout.AutoLinearLayout;
 
 /**
  * # 作者：王宏伟
@@ -18,8 +18,24 @@ import com.zhy.autolayout.utils.AutoUtils;
 
 public class BookRecyclerviewAdapter extends RecyclerView.Adapter<BookRecyclerviewAdapter.MyViewHolder> {
 
+
+    private RecyclerOnItemClickListener mOnItemClickListener;
+
+    public void setOnItemClickListener(RecyclerOnItemClickListener mOnItemClickListener) {
+        this.mOnItemClickListener = mOnItemClickListener;
+    }
+
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
+        if (mOnItemClickListener != null) {
+            holder.mAutoBook.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = holder.getLayoutPosition();
+                    mOnItemClickListener.onItemClick(holder.mAutoBook,position);
+                }
+            });
+        }
 
     }
 
@@ -35,21 +51,18 @@ public class BookRecyclerviewAdapter extends RecyclerView.Adapter<BookRecyclervi
 
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(Latte.getApplication()).inflate(R.layout.book_grid_item,parent,false);
-        MyViewHolder holder= new MyViewHolder(view);
+        View view = LayoutInflater.from(Latte.getApplication()).inflate(R.layout.book_grid_item, parent, false);
+        MyViewHolder holder = new MyViewHolder(view);
         return holder;
     }
 
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-
-        TextView tv;
+        AutoLinearLayout mAutoBook;
 
         public MyViewHolder(View view) {
             super(view);
-            AutoUtils.autoSize(view);
-
-
+            mAutoBook = view.findViewById(R.id.auto_book);
         }
 
     }

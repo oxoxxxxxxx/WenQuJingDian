@@ -17,7 +17,9 @@ import com.wenqujingdian.adapter.BookRecyclerviewAdapter;
 import com.wenqujingdian.app.Latte;
 import com.wenqujingdian.base.BaseViewPagerFragment;
 import com.wenqujingdian.ui.GridSpacingItemDecoration;
+import com.wenqujingdian.ui.RecyclerOnItemClickListener;
 import com.wenqujingdian.util.InitRefresh;
+import com.wenqujingdian.view.BookMassage.BookMassageActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -46,10 +48,11 @@ public class BookViewPagerFragment extends BaseViewPagerFragment {
     RecyclerView       mChildBooksClass;
     @Bind(R.id.book_srll_layout)
     SwipeRefreshLayout mBookSrllLayout;
+    private BookRecyclerviewAdapter mChildBooksAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container) {
-        View view = inflater.inflate(R.layout.child_frag_book, container,false);
+        View view = inflater.inflate(R.layout.child_frag_book, container, false);
         ButterKnife.bind(this, view);
         return view;
     }
@@ -62,8 +65,14 @@ public class BookViewPagerFragment extends BaseViewPagerFragment {
         boolean includeEdge = false;
         mChildBooks.setLayoutManager(new GridLayoutManager(Latte.getApplication(), 3));
         mChildBooks.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
-        mChildBooks.setAdapter(new BookRecyclerviewAdapter());
-
+        mChildBooksAdapter = new BookRecyclerviewAdapter();
+        mChildBooks.setAdapter(mChildBooksAdapter);
+        mChildBooksAdapter.setOnItemClickListener(new RecyclerOnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                startActivity(BookMassageActivity.class);
+            }
+        });
         mChildBooksClass.setLayoutManager(new GridLayoutManager(Latte.getApplication(), 3));
         mChildBooksClass.setAdapter(new BookClassRecyclerviewAdapter());
 
@@ -76,7 +85,6 @@ public class BookViewPagerFragment extends BaseViewPagerFragment {
             log("第一次加载 55");
         }
     }
-
 
 
     @OnClick({R.id.child_book_class, R.id.child_book_sou_tv, R.id.child_book_down_more})

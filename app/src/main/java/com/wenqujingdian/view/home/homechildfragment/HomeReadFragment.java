@@ -14,7 +14,9 @@ import com.wenqujingdian.adapter.ReadsRecyclerviewAdapter;
 import com.wenqujingdian.app.Latte;
 import com.wenqujingdian.base.BaseViewPagerFragment;
 import com.wenqujingdian.ui.GridSpacingItemDecoration;
+import com.wenqujingdian.ui.RecyclerOnItemClickListener;
 import com.wenqujingdian.util.InitRefresh;
+import com.wenqujingdian.view.ReadMassage.ReadMassageActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -34,6 +36,7 @@ public class HomeReadFragment extends BaseViewPagerFragment {
     TextView           mReadDownMore;
     @Bind(R.id.home_read_swipe)
     SwipeRefreshLayout mHomeReadSwipe;
+    private ReadsRecyclerviewAdapter readingAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container) {
@@ -51,7 +54,14 @@ public class HomeReadFragment extends BaseViewPagerFragment {
         boolean includeEdge = false;
         mHoemRead.setLayoutManager(new GridLayoutManager(Latte.getApplication(), 3));
         mHoemRead.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
-        mHoemRead.setAdapter(new ReadsRecyclerviewAdapter());
+        readingAdapter = new ReadsRecyclerviewAdapter();
+        mHoemRead.setAdapter(readingAdapter);
+        readingAdapter.setOnItemClickListener(new RecyclerOnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                startActivity(ReadMassageActivity.class);
+            }
+        });
     }
 
 

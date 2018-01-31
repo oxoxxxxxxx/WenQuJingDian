@@ -4,11 +4,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.wenqujingdian.R;
 import com.wenqujingdian.app.Latte;
-import com.zhy.autolayout.utils.AutoUtils;
+import com.wenqujingdian.ui.RecyclerOnItemClickListener;
+import com.zhy.autolayout.AutoLinearLayout;
 
 /**
  * # 作者：王宏伟
@@ -18,8 +18,25 @@ import com.zhy.autolayout.utils.AutoUtils;
 
 public class ReadsRecyclerviewAdapter extends RecyclerView.Adapter<ReadsRecyclerviewAdapter.MyViewHolder> {
 
+
+    private RecyclerOnItemClickListener mOnItemClickListener;
+
+    public void setOnItemClickListener(RecyclerOnItemClickListener mOnItemClickListener) {
+        this.mOnItemClickListener = mOnItemClickListener;
+    }
+
+
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
+        if (mOnItemClickListener != null) {
+            holder.reads_item.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = holder.getLayoutPosition();
+                    mOnItemClickListener.onItemClick(holder.reads_item,position);
+                }
+            });
+        }
 
     }
 
@@ -43,11 +60,12 @@ public class ReadsRecyclerviewAdapter extends RecyclerView.Adapter<ReadsRecycler
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tv;
+        AutoLinearLayout reads_item;
+
 
         public MyViewHolder(View view) {
             super(view);
-            AutoUtils.autoSize(view);
+            reads_item = view.findViewById(R.id.reads_item_1);
 
         }
 

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                     android:layout_width="match_parent"
+                                     android:layout_height="match_parent"
+                                     xmlns:app="http://schemas.android.com/apk/res-auto"
+                                     android:background="@android:color/white"
+                                     android:orientation="vertical">
+
+
+    <include layout="@layout/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/book_massage_swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <com.wenqujingdian.ui.ScrollInterceptScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include
+                    layout="@layout/segmenting_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30px"
+                    android:layout_marginBottom="40px"
+                    android:orientation="horizontal">
+                    
+                    <ImageView
+                        android:layout_width="221px"
+                        android:src="@drawable/fjfbook"
+                        android:scaleType="centerCrop"
+                        android:layout_height="260px"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="30px"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="超级中国"
+                            android:textSize="30px"
+                            android:textColor="@color/textColor_666"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="作者： "
+                                android:textSize="18px"
+                                android:textColor="@color/textColor_999"/>
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="胡鞍钢著"
+                                android:textSize="18px"
+                                android:textColor="@color/textColor_333"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="出版社： "
+                                android:textSize="18px"
+                                android:textColor="@color/textColor_999"/>
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="江苏人民出版社"
+                                android:textSize="18px"
+                                android:textColor="@color/textColor_333"/>
+
+                        </LinearLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="bottom"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="164px"
+                                android:orientation="horizontal"
+                                android:gravity="center"
+                                android:background="@color/themeColor"
+                                android:layout_height="48px">
+
+                                <ImageView
+                                    android:layout_width="26px"
+                                    android:layout_height="26px"
+                                    android:src="@drawable/read"
+                                    />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:textColor="@android:color/white"
+                                    android:text="阅读原版"
+                                    android:textSize="20px"
+                                    android:layout_marginLeft="10px"
+                                    android:layout_height="wrap_content"/>
+
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="128px"
+                                android:orientation="horizontal"
+                                android:layout_marginLeft="20px"
+                                android:gravity="center"
+                                android:background="@color/backgroad_eee"
+                                android:layout_height="48px">
+
+                                <ImageView
+                                    android:layout_width="26px"
+                                    android:layout_height="26px"
+                                    android:src="@drawable/download"
+                                    />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:textColor="@color/textColor_666"
+                                    android:text="下载"
+                                    android:textSize="20px"
+                                    android:layout_marginLeft="10px"
+                                    android:layout_height="wrap_content"/>
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="30px"
+                    android:layout_marginRight="30px"
+                    android:background="@color/backgroad_e6"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20px"
+                    android:text="作品简介"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="36px"
+                    android:textColor="@color/textColor_666"/>
+
+                    <com.wenqujingdian.ui.ExpandableTextView
+                    android:id="@+id/etv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:animDuration="200"
+                    android:padding="8dp"
+                    app:collapseExpandGrarity="right"
+                    app:collapseExpandTextSize="14sp"
+                    android:layout_marginRight="20px"
+                    android:layout_marginLeft="20px"
+                    app:collapseExpandTextColor="@color/themeColor"
+                    app:contentTextColor="@color/textColor_999"
+                    app:contentTextSize="14sp"
+                    app:maxCollapsedLines="3"
+                    app:textCollapse="@string/collapse"
+                    app:textExpand="@string/expand" />
+
+                <include layout="@layout/segmenting_line"
+                         android:layout_height="wrap_content"
+                         android:layout_width="wrap_content"
+                    android:layout_marginTop="20px"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="104px"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="33px"
+                        android:layout_marginLeft="20px"
+                        android:src="@drawable/directory"
+                        android:layout_height="33px"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="目录"
+                        android:layout_marginLeft="20px"
+                        android:textColor="@color/themeColor"
+                        android:textSize="30px"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1px"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="共计"
+                        android:textSize="24px"
+                        android:textColor="@color/textColor_666"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="56"
+                        android:textSize="24px"
+                        android:textColor="@color/themeColor"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="章"
+                        android:textSize="24px"
+                        android:layout_marginRight="20px"
+                        android:textColor="@color/textColor_666"
+                        />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/backgroad_e6"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/act_book_massage_rec"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                </android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/act_book_massage_down_more"
+                    android:layout_width="match_parent"
+                    android:layout_height="87px"
+                    android:layout_marginTop="30px"
+                    android:layout_marginBottom="30px"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginRight="20px"
+                    android:background="@drawable/down_more"
+                    android:gravity="center"
+                    android:text="点击加载更多"
+                    android:textSize="30px"
+                    />
+
+
+            </LinearLayout>
+            
+        </com.wenqujingdian.ui.ScrollInterceptScrollView>
+        
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+   
+
+</com.zhy.autolayout.AutoLinearLayout>
