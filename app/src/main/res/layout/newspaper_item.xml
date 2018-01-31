@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/auto_news"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_width="221px"
+        android:layout_height="260px"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fjfbook" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="中国教师报"
+        android:layout_marginTop="26px"
+        android:maxLines="1"
+        android:layout_gravity="center_horizontal"
+        android:ellipsize="end"
+        android:textColor="@color/textColor_666"
+        android:textSize="30px" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginTop="16px"
+        android:text="2017年12月第三期"
+        android:layout_marginBottom="20px"
+        android:textColor="@color/textColor_666"
+        android:textSize="30px" />
+
+
+</com.zhy.autolayout.AutoLinearLayout>

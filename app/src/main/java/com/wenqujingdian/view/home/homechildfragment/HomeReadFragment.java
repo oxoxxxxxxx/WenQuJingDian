@@ -53,7 +53,6 @@ public class HomeReadFragment extends BaseViewPagerFragment {
         int spacing = 20;
         boolean includeEdge = false;
         mHoemRead.setLayoutManager(new GridLayoutManager(Latte.getApplication(), 3));
-        mHoemRead.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
         readingAdapter = new ReadsRecyclerviewAdapter();
         mHoemRead.setAdapter(readingAdapter);
         readingAdapter.setOnItemClickListener(new RecyclerOnItemClickListener() {

@@ -53,7 +53,6 @@ public class HomeBookFragment extends BaseViewPagerFragment {
         int spacing = 20;
         boolean includeEdge = false;
         mHoeBooks.setLayoutManager(new GridLayoutManager(Latte.getApplication(), 3));
-        mHoeBooks.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
         bookAdapter = new BookRecyclerviewAdapter();
         mHoeBooks.setAdapter(bookAdapter);
         bookAdapter.setOnItemClickListener(new RecyclerOnItemClickListener() {

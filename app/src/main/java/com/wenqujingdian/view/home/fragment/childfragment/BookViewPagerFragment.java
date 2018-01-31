@@ -64,7 +64,6 @@ public class BookViewPagerFragment extends BaseViewPagerFragment {
         int spacing = 20;
         boolean includeEdge = false;
         mChildBooks.setLayoutManager(new GridLayoutManager(Latte.getApplication(), 3));
-        mChildBooks.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
         mChildBooksAdapter = new BookRecyclerviewAdapter();
         mChildBooks.setAdapter(mChildBooksAdapter);
         mChildBooksAdapter.setOnItemClickListener(new RecyclerOnItemClickListener() {

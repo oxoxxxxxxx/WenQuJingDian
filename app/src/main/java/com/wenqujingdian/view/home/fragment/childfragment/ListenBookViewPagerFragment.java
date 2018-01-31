@@ -64,7 +64,6 @@ public class ListenBookViewPagerFragment extends BaseViewPagerFragment {
         int spacing = 20;
         boolean includeEdge = false;
         mListenReading.setLayoutManager(new GridLayoutManager(Latte.getApplication(), 3));
-        mListenReading.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
         readingAdapter =new ReadsRecyclerviewAdapter();
         mListenReading.setAdapter(readingAdapter);
         readingAdapter.setOnItemClickListener(new RecyclerOnItemClickListener() {

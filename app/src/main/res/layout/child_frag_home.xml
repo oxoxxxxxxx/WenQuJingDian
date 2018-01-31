@@ -131,7 +131,7 @@
                         android:layout_marginLeft="20px"
                         android:layout_marginRight="20px"
                         android:layout_marginBottom="30px"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         />
 
                 <include layout="@layout/segmenting_line"/>

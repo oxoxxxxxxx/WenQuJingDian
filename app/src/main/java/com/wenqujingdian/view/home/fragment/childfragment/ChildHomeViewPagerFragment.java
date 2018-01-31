@@ -84,12 +84,10 @@ public class ChildHomeViewPagerFragment extends BaseViewPagerFragment {
         int spacing = 20;
         boolean includeEdge = false;
         mChildHomeRecommendedBooks.setLayoutManager(new GridLayoutManager(Latte.getApplication(), 3));
-        mChildHomeRecommendedBooks.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
         bookAdapter = new BookRecyclerviewAdapter();
         mChildHomeRecommendedBooks.setAdapter(bookAdapter);
 
         mChildHomeRecommendedReading.setLayoutManager(new GridLayoutManager(Latte.getApplication(), 3));
-        mChildHomeRecommendedReading.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
         readingAdapter = new ReadsRecyclerviewAdapter();
         mChildHomeRecommendedReading.setAdapter(readingAdapter);
         readingAdapter.setOnItemClickListener(new RecyclerOnItemClickListener() {
@@ -100,7 +98,6 @@ public class ChildHomeViewPagerFragment extends BaseViewPagerFragment {
         });
 
         mChildHomeNewBooks.setLayoutManager(new GridLayoutManager(Latte.getApplication(), 3));
-        mChildHomeNewBooks.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
         mChildHomeNewBooks.setAdapter(bookAdapter);
         bookAdapter.setOnItemClickListener(new RecyclerOnItemClickListener() {
             @Override
