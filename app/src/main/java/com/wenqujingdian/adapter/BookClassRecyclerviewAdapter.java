@@ -30,12 +30,12 @@ public class BookClassRecyclerviewAdapter extends RecyclerView.Adapter<BookClass
 
     @Override
     public int getItemCount() {
-        return 10;
+        return 6;
     }
 
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(Latte.getApplication()).inflate(R.layout.book_grid_item,parent,false);
+        View view = LayoutInflater.from(Latte.getApplication()).inflate(R.layout.books_class,parent,false);
         MyViewHolder holder= new MyViewHolder(view);
         return holder;
     }

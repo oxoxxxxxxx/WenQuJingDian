@@ -30,7 +30,7 @@ public class ReadsRecyclerviewAdapter extends RecyclerView.Adapter<ReadsRecycler
 
     @Override
     public int getItemCount() {
-        return 12;
+        return 6;
     }
 
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

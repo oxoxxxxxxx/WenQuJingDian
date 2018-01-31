@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.wenqujingdian.R;
 import com.wenqujingdian.adapter.BookRecyclerLinViewAdapter;
 import com.wenqujingdian.adapter.BookRecyclerviewAdapter;
+import com.wenqujingdian.adapter.ReadsRecyclerviewAdapter;
 import com.wenqujingdian.app.Latte;
 import com.wenqujingdian.base.BaseViewPagerFragment;
 import com.wenqujingdian.ui.GridSpacingItemDecoration;
@@ -83,7 +84,7 @@ public class ChildHomeViewPagerFragment extends BaseViewPagerFragment {
 
         mChildHomeRecommendedReading.setLayoutManager(new GridLayoutManager(Latte.getApplication(), 3));
         mChildHomeRecommendedReading.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
-        mChildHomeRecommendedReading.setAdapter(new BookRecyclerviewAdapter());
+        mChildHomeRecommendedReading.setAdapter(new ReadsRecyclerviewAdapter());
 
         mChildHomeNewBooks.setLayoutManager(new GridLayoutManager(Latte.getApplication(), 3));
         mChildHomeNewBooks.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
